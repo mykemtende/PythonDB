@@ -11,17 +11,17 @@ class People:
 
 	def InsertDB(self):
 		print('Enter your details below to save in sqliteDB')
-		m= raw_input('ID Number: ')
-		n = raw_input('Enter name: ')
-		a = raw_input('Enter age:  ')
-		cur.execute('''INSERT INTO People (idno, name, age) VALUES (?,? , ?)''', (m, n,a))
+		self.m= raw_input('ID Number: ')
+		self.n = raw_input('Enter name: ')
+		self.a = raw_input('Enter age:  ')
+		cur.execute('''INSERT INTO People (idno, name, age) VALUES (?,? , ?)''', (self.m, self.n,self.a))
 		conn.commit()
 
 
 	def ShowDB(self):# data retrieval
 		cur.execute('SELECT * FROM People')
 		count = 0
-		
+
 		print('Database Details')
 		for row in cur:
 			if count < 5: print(row)
